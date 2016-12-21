@@ -5,20 +5,20 @@ import java.util.regex.Pattern;
 
 /**
  * <a href="https://www.taobao.com/markets/xie/nvxie/index" data-cid="1"
- * data-dataid="222886">Ğ¬Ñ¥</a> /
+ * data-dataid="222886">é‹é´</a> /
  * 
  * @author wenka
  *
  */
 public class TestMatcher {
 
-	public static final String PATTERN_A = ">(.+?)</a>";// Æ¥ÅäA±êÇ©
-	public static final String PATTERN_HREF = "href=\"(.+?)\"";// Æ¥Åä³¬Á´½Ó
-	public static final String PATTERN_A_ONLY_TEXT = ">([\u4e00-\u9fa5]{0,})</a>";// Æ¥ÅäA±êÇ©Ö»ÓĞÎÄ±¾µÄÄÚÈİ
+	public static final String PATTERN_A = ">(.+?)</a>";// åŒ¹é…Aæ ‡ç­¾
+	public static final String PATTERN_HREF = "href=\"(.+?)\"";// åŒ¹é…è¶…é“¾æ¥
+	public static final String PATTERN_A_ONLY_TEXT = ">([\u4e00-\u9fa5]{0,})</a>";// åŒ¹é…Aæ ‡ç­¾åªæœ‰æ–‡æœ¬çš„å†…å®¹
 
 	public static void main(String[] args) {
 
-		String s = "<a href=\"https://www.taobao.com/markets/xie/nvxie/index\" data-cid=\"1\" data-dataid=\"222886\">Ğ¬Ñ¥</a>";
+		String s = "<a href=\"https://www.taobao.com/markets/xie/nvxie/index\" data-cid=\"1\" data-dataid=\"222886\">é‹é´</a>";
 		// https://www.taobao.com/markets/xie/nvxie/index
 		regexString(s, PATTERN_HREF);
 
@@ -27,13 +27,13 @@ public class TestMatcher {
 
 	public static int regexString(String targetStr, String patternStr) {
 
-		int count = 0;// Æ¥Åä¸öÊı
+		int count = 0;// åŒ¹é…ä¸ªæ•°
 
 		Pattern pattern = Pattern.compile(patternStr);
 
 		Matcher matcher = pattern.matcher(targetStr);
 
-		// Èç¹ûÆ¥Åä£¬ÔòÑ°ÕÒÏÂÒ»¸ö
+		// å¦‚æœåŒ¹é…ï¼Œåˆ™å¯»æ‰¾ä¸‹ä¸€ä¸ª
 		while (matcher.find()) {
 			count++;
 			System.out.print(matcher.group(1) + "\t");

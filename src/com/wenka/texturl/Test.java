@@ -1,4 +1,4 @@
-package com.wenka.texturl;
+ï»¿package com.wenka.texturl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import com.wenka.matcher.pattern.TestMatcher;
 public class Test {
 
 	public static String getContent(String url) {
-		String result = "";// ´æ·Å¶ÁÈ¡µÄÄÚÈİ
+		String result = "";// å­˜æ”¾è¯»å–çš„å†…å®¹
 		URL u = null;
 		URLConnection urlConnection = null;
 
@@ -21,21 +21,21 @@ public class Test {
 		BufferedReader bufferedReader = null;
 
 		try {
-			u = new URL(url);// ´´½¨ URL
+			u = new URL(url);// åˆ›å»º URL
 
-			// ·µ»ØÒ»¸ö URLConnection ¶ÔÏó£¬Ëü±íÊ¾µ½ URL ËùÒıÓÃµÄÔ¶³Ì¶ÔÏóµÄÁ¬½Ó
+			// è¿”å›ä¸€ä¸ª URLConnection å¯¹è±¡ï¼Œå®ƒè¡¨ç¤ºåˆ° URL æ‰€å¼•ç”¨çš„è¿œç¨‹å¯¹è±¡çš„è¿æ¥
 			urlConnection = u.openConnection();
 
-			// ´ò¿ªµ½´Ë URL ÒıÓÃµÄ×ÊÔ´µÄÍ¨ĞÅÁ´½Ó£¨Èç¹ûÉĞÎ´½¨Á¢ÕâÑùµÄÁ¬½Ó£©¡£
+			// æ‰“å¼€åˆ°æ­¤ URL å¼•ç”¨çš„èµ„æºçš„é€šä¿¡é“¾æ¥ï¼ˆå¦‚æœå°šæœªå»ºç«‹è¿™æ ·çš„è¿æ¥ï¼‰ã€‚
 			urlConnection.connect();
 
-			// »ñÈ¡ÍøÒ³ÊäÈëÁ÷
+			// è·å–ç½‘é¡µè¾“å…¥æµ
 			inputStreamReader = new InputStreamReader(urlConnection.getInputStream());
 			bufferedReader = new BufferedReader(inputStreamReader);
 
-			// ¶ÁÈ¡
-			String line;// Ã¿Ò»ĞĞµÄÄÚÈİ¡£°´ĞĞ¶ÁÈ¡
-			int i = 0;// ¼ÇÂ¼ĞĞÊı
+			// è¯»å–
+			String line;// æ¯ä¸€è¡Œçš„å†…å®¹ã€‚æŒ‰è¡Œè¯»å–
+			int i = 0;// è®°å½•è¡Œæ•°
 			while ((line = bufferedReader.readLine()) != null) {
 				i++;
 				result += line + "\n";
@@ -47,7 +47,7 @@ public class Test {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			// ¹Ø±ÕÁ÷
+			// å…³é—­æµ
 			try {
 				inputStreamReader.close();
 			} catch (IOException e) {
@@ -67,7 +67,7 @@ public class Test {
 	public static void main(String[] args) {
 		String content = getContent("https://www.taobao.com/");
 		try {
-			// new String(content.getBytes(), "utf-8")×ªÂë
+			// new String(content.getBytes(), "utf-8")è½¬ç 
 			TestMatcher.regexString(new String(content.getBytes(), "utf-8"), TestMatcher.PATTERN_A_ONLY_TEXT);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
